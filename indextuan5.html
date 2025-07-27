@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Bài 1 -->
+    <h3>1. Hello your name (console)</h3>
+    <input type="text" id="name1" placeholder="Your name" >
+    <button onclick="sayHelloConsole()">Click button</button>
+
+    <!-- Bài 2 -->
+    <h3>2. Hello your name (on web)</h3>
+    <input type="text" id="name2" placeholder="Your name" >
+    <button onclick="sayHelloWeb()">Click button</button>
+    <p id="helloText"></p>
+
+    <!-- Bài 3 -->
+    <h3>3. Hello your name (nâng cấp)</h3>
+    <input type="text" id="name3" placeholder="Your name" >
+    <button onclick="sayHelloup()">Click button</button>
+    <p id="helloText2"></p>
+
+    <!-- Bài 4 -->
+    <h3>3. Sum 2 numbers</h3>
+    <input type="number" id="num1" placeholder="Number 1" >
+    <input type="number" id="num2" placeholder="Number 2" >
+    <button onclick="sumNumbers()">Sum</button>
+    <p id="sumResult"></p>
+
+<script>
+     //1
+    function sayHelloConsole() {
+    var name1 = document.getElementById('name1').value.trim();
+    if (name1 === "") {
+        console.error("Bạn chưa nhập tên");
+    } else {
+        console.log("Hello " + name1);
+    }
+    }
+    //2
+    function sayHelloWeb() {
+      const name2 = document.getElementById('name2').value;
+      document.getElementById('helloText').innerText = "Hello " + name2;
+    }
+    //3
+    function sayHelloup() {
+    var helloText2 = document.getElementById('helloText2');
+    var name3 = document.getElementById('name3').value.trim();
+    if (name3 === "") {
+        document.getElementById('helloText2').innerText = ("Bạn chưa nhập tên");
+    }
+    else if (name3 !== isNaN){
+        document.getElementById('helloText2').innerText = ("Bạn nhập số rồi");
+    }
+    else {
+        document.getElementById('helloText2').innerText = ("Hello " + name3);
+    }
+    }
+
+    //4
+    function sumNumbers() {
+    var num1 = parseFloat(document.getElementById('num1').value);
+    var num2 = parseFloat(document.getElementById('num2').value);
+    var sumResult = document.getElementById('sumResult');
+    if (!isNaN(num1) && !isNaN(num2)) {
+        document.getElementById('sumResult').innerText = "Sum = " + (num1 + num2)
+        console.log (num1)
+        console.log (num2)
+        console.log ("Sum = " + (num1 + num2));
+    } else {
+        document.getElementById('sumResult').innerText = "Vui lòng nhập 2 số";
+        console.error ("Vui lòng nhập 2 số")
+    }}
+</script>
+</body>
+</html>
