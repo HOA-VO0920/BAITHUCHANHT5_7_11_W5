@@ -24,11 +24,18 @@
     <p id="helloText2"></p>
 
     <!-- Bài 4 -->
-    <h3>3. Sum 2 numbers</h3>
+    <h3>4. Sum 2 numbers</h3>
     <input type="number" id="num1" placeholder="Number 1" >
     <input type="number" id="num2" placeholder="Number 2" >
     <button onclick="sumNumbers()">Sum</button>
     <p id="sumResult"></p>
+
+    <!-- Bài 5 -->
+    <h3>5. Sum 2 numbers prenium</h3>
+    <input type="text" id="numA" placeholder="Nhập số thứ 1">
+    <input type="text" id="numB" placeholder="Nhập số thứ 2">
+    <button onclick="validateSum()">Tính tổng</button>
+    <p id="sumUpgradeResult"></p>
 
 <script>
      //1
@@ -74,6 +81,27 @@
         document.getElementById('sumResult').innerText = "Vui lòng nhập 2 số";
         console.error ("Vui lòng nhập 2 số")
     }}
+    //5
+    function validateSum() {
+        var a = document.getElementById('numA').value.trim();
+        var b = document.getElementById('numB').value.trim();
+
+        let message = "";
+
+        if (a === "") message += " Bạn chưa nhập ô số 1\n";
+        if (b === "") message += " Bạn chưa nhập ô số 2\n";
+
+        if (a !== "" && isNaN(a)) message += " Ô số 1 không phải là số\n";
+        if (b !== "" && isNaN(b)) message += " Ô số 2 không phải là số\n";
+
+        if (message !== "") {
+            document.getElementById('sumUpgradeResult').innerText = message;
+            return;
+        }
+
+        var sum = parseFloat(a) + parseFloat(b);
+        document.getElementById('sumUpgradeResult').innerText = "Tổng = " + sum;
+        }
 </script>
 </body>
 </html>
